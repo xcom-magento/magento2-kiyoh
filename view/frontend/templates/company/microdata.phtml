@@ -1,0 +1,35 @@
+<?php
+/** @var \DWD\KiyohReviews\Block\Company\CompanyReviewBlock $block */
+
+$block->setCompanyReview();
+if ($block->getCorrectData()) {
+    $rating_percentage = $block->getRatingPercentage();
+    $maxrating = $block->getMaxrating();
+    $url = $block->getMicrodataUrl();
+    $rating = $block->getRating();
+    $reviews = $block->getReviews();
+    ?>
+    <div class="kiyoh-shop-snippets">
+        <div class="rating-box">
+            <div class="rating" style="width:<?php echo $rating_percentage; ?>%"></div>
+        </div>
+        <div class="kiyoh-schema" itemscope="itemscope" itemtype="http://schema.org/Organization">
+            <meta itemprop="name" content="<?php echo $block->getLocationName(); ?>"/>
+            <a href="<?php echo $block->getBaseUrl() ?>" itemprop="url"
+               style="display: none"><?php echo $block->getBaseUrl() ?></a>
+            <div itemprop="aggregateRating" itemscope="itemscope" itemtype="http://schema.org/AggregateRating">
+                <meta itemprop="bestRating" content="<?php echo $maxrating; ?>">
+                <p>
+                    <a href="<?php echo $url; ?>" target="_blank" class="kiyoh-link">
+                        <?php echo __('Rating') ?> <span
+                            itemprop="ratingValue"><?php echo $rating; ?></span> <?php echo __('out of %1, based on', $maxrating) ?>
+                        <span
+                            itemprop="ratingCount"><?php echo $reviews; ?></span> <?php echo __('customer reviews'); ?>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+

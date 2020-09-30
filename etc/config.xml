@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <dwd_kiyoh_product_reviews_section>
+            <general>
+                <dwd_kiyoh_server>https://www.kiyoh.com</dwd_kiyoh_server>
+                <dwd_kiyoh_event>complete</dwd_kiyoh_event>
+                <dwd_kiyoh_delay>7</dwd_kiyoh_delay>
+                <dwd_kiyoh_review_email_lang>nl</dwd_kiyoh_review_email_lang>
+                <dwd_kiyoh_log_enable>0</dwd_kiyoh_log_enable>
+            </general>
+            <group_kiyoh_company>
+                <dwd_kiyoh_company_enable>1</dwd_kiyoh_company_enable>
+                <dwd_kiyoh_company_widget_enable>1</dwd_kiyoh_company_widget_enable>
+            </group_kiyoh_company>
+            <group_kiyoh_product>
+                <dwd_kiyoh_product_enable>1</dwd_kiyoh_product_enable>
+                <dwd_kiyoh_cron_enable>0</dwd_kiyoh_cron_enable>
+                <dwd_kiyoh_product_max>5</dwd_kiyoh_product_max>
+            </group_kiyoh_product>
+        </dwd_kiyoh_product_reviews_section>
+    </default>
+</config>

@@ -1,0 +1,18 @@
+<div id="manual_product_sync">
+    <?= $block->getButtonHtml(); ?>
+    <span class="collect-indicator" id="collect_span">
+<img class="processing" hidden="hidden" alt="Collecting" style="margin:0 5px"
+     src="<?php echo $block->getViewFileUrl('images/process_spinner.gif') ?>"/>
+<img class="collected" hidden="hidden" alt="Collected" style="margin:-3px 5px"
+     src="<?php echo $block->getViewFileUrl('images/rule_component_apply.gif') ?>"/>
+<span id="collect_message_span"></span>
+</span>
+</div>
+
+<script type="text/x-magento-init">
+       {
+           "#manual_product_sync": {
+               "DWD_KiyohReviews/js/submit": { "url" : "<?= $block->getAjaxUrl() ?>" }
+           }
+       }
+</script>

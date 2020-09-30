@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <!--  order status -->
+    <event name="sales_order_save_after">
+        <observer name="dwd_kiyoh_send_invite_completed" instance="DWD\KiyohReviews\Observer\SalesOrderSaveAfter"/>
+    </event>
+</config>

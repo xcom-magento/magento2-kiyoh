@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="dwd_kiyoh_send_invite">
+        <observer name="dwd_kiyoh_send_invite" instance="DWD\KiyohReviews\Observer\SendCustomTriggerEvent"/>
+    </event>
+    <event name="dwd_kiyoh_send_products">
+        <observer name="dwd_kiyoh_send_products" instance="DWD\KiyohReviews\Observer\SendProductsObserver" />
+    </event>
+</config>

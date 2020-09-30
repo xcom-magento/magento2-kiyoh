@@ -1,0 +1,50 @@
+<?php
+/**
+ * @var \DWD\KiyohReviews\Block\Product\View $this
+ */
+?>
+<?php
+if ($this->getReviewByProduct()): ?>
+    <div class="block review-list" id="customer-reviews">
+        <div class="block-title">
+            <strong><?php /* @escapeNotVerified */
+                echo __('Kiyoh Reviews') ?></strong>
+        </div>
+        <div class="block-content">
+            <ol class="items review-items">
+                <?php foreach ($this->getReviewByProduct() as $_review): ?>
+                    <li class="item review-item" itemscope itemprop="review" itemtype="http://schema.org/Review">
+                        <div class="review-title"
+                             itemprop="name"><?php echo $block->escapeHtml($_review["title"]) ?></div>
+                        <div class="rating-summary item" itemprop="reviewRating" itemscope
+                             itemtype="http://schema.org/Rating">
+                            <div class="review-ratings">
+                                <span class="label rating-label"><span><?= __("Rating") ?></span></span>
+                                <div class="rating-result" title="<?= $block->escapeHtmlAttr($_review["rating"]) ?>%">
+                                    <meta itemprop="worstRating" content="1"/>
+                                    <meta itemprop="bestRating" content="100"/>
+                                    <span style="width: <?php echo $this->getPercentage($_review["rating"]) ?>%">
+                                <span itemprop="ratingValue"><?= $block->escapeHtml($_review["rating"]) ?>%</span>
+                            </span>
+                                </div>
+                            </div>
+                            <div class="review-content" itemprop="description">
+                                <?php echo nl2br($block->escapeHtml($_review["content"])) ?>
+                            </div>
+                            <div class="review-details">
+                                <p class="review-author">
+                                <span class="review-details-label"><?php /* @escapeNotVerified */
+                                    echo __('Review by') ?></span>
+                                    <strong class="review-details-value"
+                                            itemprop="author"><?php echo $block->escapeHtml($_review["reviewAuthor"]) ?></strong>
+                                </p>
+                            </div>
+                    </li>
+                <?php endforeach; ?>
+            </ol>
+        </div>
+    </div>
+
+
+<?php endif;
+?>

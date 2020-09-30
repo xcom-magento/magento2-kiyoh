@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="dwd_tab" translate="label" sortOrder="999991">
+            <label>Dwd</label>
+        </tab>
+        <section id="dwd_kiyoh_product_reviews_section" translate="label" sortOrder="200" showInDefault="1"
+                 showInWebsite="1"
+                 showInStore="1">
+            <resource>DWD_KiyohReviews::config</resource>
+            <label>Kiyoh reviews</label>
+            <tab>dwd_tab</tab>
+            <group id="general" translate="label" sortOrder="10" showInDefault="1"
+                   showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="dwd_kiyoh_product_api_key" translate="label" type="text" showInDefault="1" sortOrder="10"
+                       showInWebsite="0" showInStore="0">
+                    <label>Api key</label>
+                </field>
+                <field id="dwd_kiyoh_product_location_id" translate="label" type="text" showInDefault="1" sortOrder="20"
+                       showInWebsite="0" showInStore="0">
+                    <label>Location id</label>
+                </field>
+                <field id="dwd_kiyoh_server" translate="label" type="select" sortOrder="30" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Server</label>
+                    <source_model>DWD\KiyohReviews\Model\Config\Source\Network</source_model>
+                </field>
+                <field id="dwd_kiyoh_event" translate="label tooltip comment" sortOrder="40" type="select"
+                       showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Select Event</label>
+                    <comment>Enter here the event after which you would like to send review invite email to your
+                        customer. Complete triggers when the order has the status complete (after shipping), Processing
+                        triggers after the order has been invoiced
+                    </comment>
+                    <source_model>DWD\KiyohReviews\Model\Config\Source\Reviewevents</source_model>
+                </field>
+                <field id="dwd_kiyoh_delay" translate="label tooltip comment" sortOrder="50" type="text"
+                       showInDefault="1" canRestore="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Enter delay</label>
+                    <comment>Enter here the delay(number of days) after which you would like to send review invite email
+                        to your customer. This delay applies after the selected event. You may enter 0 to send review
+                        invite email immediately after customer event.
+                    </comment>
+                </field>
+                <field id="dwd_kiyoh_review_email_lang" translate="label" type="select" sortOrder="60" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Email language</label>
+                    <source_model>DWD\KiyohReviews\Model\Config\Source\EmailLangCode</source_model>
+                    <comment>Language of the review email</comment>
+                </field>
+                <field id="dwd_kiyoh_log_enable" translate="label" type="select" showInDefault="1" sortOrder="70"
+                       showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Debug log:</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="group_kiyoh_company" translate="label" sortOrder="10" showInDefault="1"
+                   showInWebsite="1" showInStore="1">
+                <label>Kiyoh company review</label>
+                <field id="dwd_kiyoh_company_enable" translate="label" type="select" showInDefault="1" showInWebsite="0"
+                       sortOrder="0" showInStore="0">
+                    <label>Enable Send review:</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>This will send company review after the chosen event</comment>
+                </field>
+                <field id="dwd_kiyoh_company_widget_enable" translate="label" type="select" showInDefault="1" showInWebsite="0"
+                       sortOrder="10" showInStore="0">
+                    <label>Enable Widget:</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="group_kiyoh_product" translate="label" sortOrder="10" showInDefault="1"
+                   showInWebsite="1" showInStore="1">
+                <label>Kiyoh product review</label>
+                <field id="dwd_kiyoh_product_enable" translate="label" type="select" showInDefault="1" showInWebsite="0"
+                       sortOrder="0" showInStore="0">
+                    <label>Enable:</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>This will send company and product review combined after the chosen event</comment>
+                </field>
+                <field id="dwd_kiyoh_product_max" type="select"  translate="button_label" showInDefault="1" sortOrder="10"
+                       showInWebsite="0" showInStore="0">
+                    <label>Max products in review</label>
+                    <source_model>DWD\KiyohReviews\Model\Config\Source\ProductInput</source_model>
+                </field>
+                <field id="dwd_kiyoh_cron_enable" translate="label" type="select" showInDefault="1" sortOrder="20"
+                       showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Enable Product Sync Cron</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Activate cron only on live environment. This will sync all products to kiyoh</comment>
+                </field>
+                <field id="dwd_kiyoh_cron_frequency" translate="label" type="select" sortOrder="22" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Frequency</label>
+                    <source_model>Magento\Cron\Model\Config\Source\Frequency</source_model>
+                    <backend_model>DWD\KiyohReviews\Model\Config\Backend\Frequency</backend_model>
+                    <depends>
+                        <field id="dwd_kiyoh_cron_enable">1</field>
+                    </depends>
+                </field>
+                <field id="dwd_kiyoh_cron_time" translate="label" type="time" sortOrder="25" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Start Time</label>
+                    <depends>
+                        <field id="dwd_kiyoh_cron_enable">1</field>
+                    </depends>
+                </field>
+                <field id="dwd_kiyoh_product_sync" translate="button_label" showInDefault="1" sortOrder="30"
+                       showInWebsite="0" showInStore="0">
+                    <frontend_model>DWD\KiyohReviews\Block\Adminhtml\System\Config\SubmitBlock</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
