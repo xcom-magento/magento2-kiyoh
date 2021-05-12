@@ -15,11 +15,11 @@
                    showInWebsite="1" showInStore="1">
                 <label>General</label>
                 <field id="dwd_kiyoh_product_api_key" translate="label" type="text" showInDefault="1" sortOrder="10"
-                       showInWebsite="0" showInStore="0">
+                       showInWebsite="1" showInStore="1">
                     <label>Api key</label>
                 </field>
                 <field id="dwd_kiyoh_product_location_id" translate="label" type="text" showInDefault="1" sortOrder="20"
-                       showInWebsite="0" showInStore="0">
+                       showInWebsite="1" showInStore="1">
                     <label>Location id</label>
                 </field>
                 <field id="dwd_kiyoh_server" translate="label" type="select" sortOrder="30" showInDefault="1"

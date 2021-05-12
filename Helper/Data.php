@@ -85,13 +85,15 @@ class Data extends AbstractHelper
     public function getKiyohApiKey()
     {
         return $this->configScopeConfigInterface->getValue(
-            'dwd_kiyoh_product_reviews_section/general/dwd_kiyoh_product_api_key');
+            'dwd_kiyoh_product_reviews_section/general/dwd_kiyoh_product_api_key',
+            \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
     }
 
     public function getKiyohLocationId()
     {
         return $this->configScopeConfigInterface->getValue(
-            'dwd_kiyoh_product_reviews_section/general/dwd_kiyoh_product_location_id');
+            'dwd_kiyoh_product_reviews_section/general/dwd_kiyoh_product_location_id',
+            \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
     }
 
     public function getKiyohServer()
